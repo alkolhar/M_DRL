@@ -7,20 +7,20 @@ To obtain the credits for the module Deep Reinforcement Learning, students are r
 > :warning:	This is an ongoing project. This page does not reflect the current state. :warning: <br>
 > To see the current status of the work, please visit my [GitHub DRL Repository](https://github.com/alkolhar/M_DRL/)
 
-## Miniproject 1: Windy Gridworld
-Windy Gridworld problem for reinforcement learning. Actions include going left, right, up and down.
-In each column the wind pushes you up a specific number of steps (for the next action).
-If an action would take you off the grid, you remain in the previous state.
-For each step you get a reward of -1, until you reach into a terminal state.
+## Miniproject 1: Cliff Walking
+This is a standard un-discounted, episodic task, with start and goal states, and the usual actions causing
+movement up, down, right, and left. Reward is -1 on all transitions except those into the region marked
+Cliff. Stepping into this region incurs a reward of optimal path -100 and sends the agent instantly back to
+the start.
 
-![Windy Gridworld](/images/windy_gridworld.png)
+![Cliff Walking](/images/cliff_walking.png)
 
 ### Specifications
 - [x] Pick one of the simple, classic textbook RL problems
-- [ ] Separate the environment from the agent
-- [ ] Implement the SARSA algorithm
+- [x] Separate the environment from the agent
+- [x] Implement the SARSA algorithm
 - [ ] \(Optional) Implement the SARSA-λ algorithm
-- [ ] Use the epsilon-greedy policy
+- [x] Use the epsilon-greedy policy
 - [ ] \(Alternative) Search for softmax policy with temperature τ
 - [ ] Visualize and discuss your observations in the report
 
