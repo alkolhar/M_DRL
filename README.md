@@ -49,4 +49,31 @@ Q- Learning instead learns values for the optimal policy, which travels right al
 Unfortunately, this results in its occasionally falling off the cliff because of the epsilon-greedy action
 selection.
 
-## Miniproject 2: TBD.
+## Miniproject 2: Lunar Lander
+Using reinforcement learning approaches, we want to tackle the lunar lander environment in the OpenAI gym kit.
+The environment, which includes a well-defined physics engine, replicates a situation in which a lander must land at a precise point in low-gravity conditions.
+The basic purpose of the game is to guide the agent as softly and efficiently as possible to the landing pad. The state space, like in real physics, is continuous, but the action space is discrete.
+![before-training](https://github.com/alkolhar/M_DRL/blob/main/images/before-training.gif)
+
+### Environment
+There are four discrete actions available: do nothing, fire left orientation engine, fire main engine, fire right orientation engine. There are 8 states: the coordinates of the lander in x & y, its linear velocities in x & y, its angle, its angular velocity, and two Booleans that represent whether each leg is in contact with the ground or not.
+Reward for moving from the top of the screen to the landing pad and coming to rest is about 100-140 points. If the lander moves away from the landing pad, it loses reward. If the lander crashes, it receives an additional -100 points. If it comes to rest, it receives an additional +100 points. Each leg with ground contact is +10 points. Firing the main and side engines is -0.3 points for each frame. Solved is 200 points. The lander starts at the top centre of the viewport with a random initial force applied to its centre of mass.
+The episode finishes if the lander has crashed, or the lander gets outside of the viewport.
+1.	The lander has crashed
+2.	The lander gets outside of the viewport
+
+### Deep Q Network
+Deep Q Networks are used, in order to easily scale Table Q Learning-based algorithms by replacing them with a neural network, able to learn how to correctly estimate the Q Values (Function Approximation).
+
+#### Hyperparameter tuning
+![Q-Table Sarsa](/images/hyperparameter-tuning.png)<br>
+To optimize our Agent, we decided to run some hyperparameter tuning first. We run a grid search on the number of hidden layers and the activation function in the fully connected network.
+Due to the lack of proper computing power, the search for optimal learning rate is done after the first tuning.
+The best configuration ran with 512 layers, a linear activation function and a learning rate of 0.0001. The result of this agent is visualized in the sections below.
+
+### Episodes needed
+The gradient of the steps – episodes plot is quite steep at the start of training.
+This means that the lander did not take many steps/actions until it crashed or landed, probably because of the first one. Then after about 500 episodes the lander learned presumably how to land, because after that it takes more steps until an episode is finished.
+At the end of training the steps begin to decline again but the reason this time is that the lander now is landing efficiently in the zone. 
+![after-training](https://github.com/alkolhar/M_DRL/blob/main/images/after-training.gif)
+
