@@ -12,28 +12,38 @@ the start.
 
 See my solution in this [Jupyter Notebook](https://github.com/alkolhar/M_DRL/blob/main/MiniProject-Cliff_Walking.ipynb)
 
-![Cliff Walking](/images/cliff_walking.png)
+<p align="center">
+  <img src='https://github.com/alkolhar/M_DRL/blob/main/images/cliff_walking.png?raw=true' />
+</p>
 
 ### SARSA algorithm
-![SARSA algorithm](/images/sarsa-algorithm.png)<br>
+<p align="center">
+  <img src='https://github.com/alkolhar/M_DRL/blob/main/images/sarsa-algorithm.png?raw=true' />
+</p>
 State–action–reward–state–action (SARSA) is an algorithm for learning a Markov decision process policy.
 This name simply reflects the fact that the main function for updating the Q-value depends on the current state of the
 agent "S1", the action the agent chooses "A1", the reward "R" the agent gets for choosing this action, the state "S2"
 that the agent enters after taking that action, and finally the next action "A2" the agent chooses in its new state. 
 
 #### Resulting Q-Table
-![Q-Table Sarsa](/images/q-table-sarsa.png)<br>
+<p align="center">
+  <img src='https://github.com/alkolhar/M_DRL/blob/main/images/q-table-sarsa.png?raw=true' />
+</p>
 This table shows the Q values for everey state in the game. Every state has a Q value for every action in 
 that state. This value represents the expected future reward on the given action. Eye-catching is the fact
 that in one state the different values for an action are just slightly different.
 
 ### Q-Learning algorithm
-![Q-Learning algorithm](/images/q-algorithm.png)<br>
+<p align="center">
+  <img src='https://github.com/alkolhar/M_DRL/blob/main/images/q-algorithm.png?raw=true' />
+</p>
 The Q-Learning algorithm differs only slightly from SARSA. It also calulates the Q values from state-action paris,
 but the next action does not come from a greedy policy, instead the highest possible value is chosen.
 
 #### Resulting Q-Table
-![Q-Table Sarsa](/images/q-table-q_learning.png)<br>
+<p align="center">
+  <img src='https://github.com/alkolhar/M_DRL/blob/main/images/q-table-q_learning.png?raw=true' />
+</p>
 If this Q value table is compared with the same table when applying the SARSA algorithm the main difference
 is that in this table, the values in one state are more distinct for the differenct actions, than in the
 SARSA table.
@@ -52,8 +62,9 @@ The environment, which includes a well-defined physics engine, replicates a situ
 The basic purpose of the game is to guide the agent as softly and efficiently as possible to the landing pad. The state space, like in real physics, is continuous, but the action space is discrete.
 
 See my solution in this [Jupyter Notebook](https://github.com/alkolhar/M_DRL/blob/main/MiniProject-LunarLander.ipynb)<br>
-<img src='https://github.com/alkolhar/M_DRL/blob/main/images/before-training.gif?raw=true' />
-![before-training](https://github.com/alkolhar/M_DRL/blob/main/images/before-training.gif)<br>
+<p align="center">
+  <img src='https://github.com/alkolhar/M_DRL/blob/main/images/before-training.gif?raw=true' />
+</p>
 
 ### Environment
 There are four discrete actions available: do nothing, fire left orientation engine, fire main engine, fire right orientation engine. There are 8 states: the coordinates of the lander in x & y, its linear velocities in x & y, its angle, its angular velocity, and two Booleans that represent whether each leg is in contact with the ground or not.
@@ -66,15 +77,22 @@ The episode finishes if the lander has crashed, or the lander gets outside of th
 Deep Q Networks are used, in order to easily scale Table Q Learning-based algorithms by replacing them with a neural network, able to learn how to correctly estimate the Q Values (Function Approximation).
 
 #### Hyperparameter tuning
-![HyperTuning](/images/hyperparameter-tuning.png)<br>
+<p align="center">
+  <img src='https://github.com/alkolhar/M_DRL/blob/main/images/hyperparameter-tuning.png?raw=true' />
+</p>
 To optimize our Agent, we decided to run some hyperparameter tuning first. We run a grid search on the number of hidden layers and the activation function in the fully connected network.
 Due to the lack of proper computing power, the search for optimal learning rate is done after the first tuning.
 The best configuration ran with 512 layers, a linear activation function and a learning rate of 0.0001. The result of this agent is visualized in the sections below.
 
 ### Episodes needed
-![Episodes](/images/episodes.png)<br>
+<p align="center">
+  <img src='https://github.com/alkolhar/M_DRL/blob/main/images/episodes.png?raw=true' />
+</p>
 The gradient of the steps – episodes plot is quite steep at the start of training.
 This means that the lander did not take many steps/actions until it crashed or landed, probably because of the first one. Then after about 500 episodes the lander learned presumably how to land, because after that it takes more steps until an episode is finished.
 At the end of training the steps begin to decline again but the reason this time is that the lander now is landing efficiently in the zone.<br>
-![after-training](https://github.com/alkolhar/M_DRL/blob/main/images/after-training.gif)
+<p align="center">
+  <img src='https://github.com/alkolhar/M_DRL/blob/main/images/after-training.gif?raw=true' />
+</p>
+
 
