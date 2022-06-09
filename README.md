@@ -52,6 +52,7 @@ The environment, which includes a well-defined physics engine, replicates a situ
 The basic purpose of the game is to guide the agent as softly and efficiently as possible to the landing pad. The state space, like in real physics, is continuous, but the action space is discrete.
 
 See my solution in this [Jupyter Notebook](https://github.com/alkolhar/M_DRL/blob/main/MiniProject-LunarLander.ipynb)<br>
+<img src='https://github.com/alkolhar/M_DRL/blob/main/images/before-training.gif?raw=true' />
 ![before-training](https://github.com/alkolhar/M_DRL/blob/main/images/before-training.gif)<br>
 
 ### Environment
